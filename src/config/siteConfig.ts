@@ -1,17 +1,17 @@
 export const siteConfig = {
   couple: {
-    partner1: "Ahmed",
-    partner2: "Sara",
-    hashtag: "#AhmedAndSara2026",
+    partner1: "Seif",
+    partner2: "Salma",
+    hashtag: "#SeifAndSalma2026",
   },
 
-  weddingDate: "2026-10-15T18:00:00",
+  weddingDate: "2026-4-17T18:00:00",
 
   hero: {
     backgroundImage:
       "https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80",
     subtitle: "We're Getting Married!",
-    dateDisplay: "October 15, 2026",
+    dateDisplay: "April 17, 2026",
   },
 
   loveStory: [
