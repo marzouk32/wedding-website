@@ -1,0 +1,19 @@
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) 0;
+}
+
+.line {
+  display: block;
+  width: 80px;
+  height: 1px;
+  background: var(--color-gold-light);
+}
+
+.diamond {
+  color: var(--color-gold);
+  font-size: 0.75rem;
+}

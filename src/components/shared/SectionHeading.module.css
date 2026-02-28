@@ -1,0 +1,25 @@
+.wrapper {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-gold);
+  margin-bottom: var(--space-xs);
+}
+
+.ornament {
+  font-size: 1.5rem;
+  color: var(--color-gold-light);
+  margin-bottom: var(--space-sm);
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--color-warm-gray);
+  font-weight: 300;
+  max-width: 500px;
+  margin: 0 auto;
+}

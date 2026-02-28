@@ -1,0 +1,130 @@
+.section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timeline {
+  position: relative;
+  padding: var(--space-md) 0;
+}
+
+.line {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-gold-light);
+}
+
+.item {
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: var(--space-lg);
+}
+
+.dot {
+  position: absolute;
+  left: 13px;
+  top: 30px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: 3px solid var(--color-ivory);
+  z-index: 1;
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .imageWrapper img {
+  transform: scale(1.05);
+}
+
+.text {
+  padding: var(--space-md);
+}
+
+.date {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-gold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+}
+
+.itemTitle {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--color-gold);
+  margin-bottom: var(--space-xs);
+}
+
+.description {
+  font-size: 0.95rem;
+  color: var(--color-warm-gray);
+  line-height: 1.7;
+}
+
+/* Desktop: alternating layout */
+@media (min-width: 768px) {
+  .line {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .item {
+    width: 50%;
+    padding-left: 0;
+  }
+
+  .left {
+    padding-right: var(--space-lg);
+    margin-left: 0;
+  }
+
+  .right {
+    padding-left: var(--space-lg);
+    margin-left: 50%;
+  }
+
+  .left .dot {
+    left: auto;
+    right: -8px;
+  }
+
+  .right .dot {
+    left: -8px;
+  }
+
+  .imageWrapper {
+    height: 260px;
+  }
+}
