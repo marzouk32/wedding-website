@@ -1,17 +1,17 @@
 export const siteConfig = {
   couple: {
-    partner1: "Ahmed",
-    partner2: "Sara",
-    hashtag: "#AhmedAndSara2026",
+    partner1: "Seif",
+    partner2: "Salma",
+    hashtag: "#SeifAndSalma2026",
   },
 
-  weddingDate: "2026-10-15T18:00:00",
+  weddingDate: "2026-04-17T18:00:00",
 
   hero: {
     backgroundImage:
       "https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80",
     subtitle: "We're Getting Married!",
-    dateDisplay: "October 15, 2026",
+    dateDisplay: "April 17, 2026",
   },
 
   loveStory: [
@@ -44,7 +44,7 @@ export const siteConfig = {
   events: [
     {
       name: "Wedding Ceremony",
-      date: "October 15, 2026",
+      date: "April 17, 2026",
       time: "6:00 PM",
       venue: "The Grand Palace Hotel",
       address: "123 Wedding Boulevard, Cairo, Egypt",
@@ -53,7 +53,7 @@ export const siteConfig = {
     },
     {
       name: "Reception & Dinner",
-      date: "October 15, 2026",
+      date: "April 17, 2026",
       time: "8:00 PM",
       venue: "The Grand Palace Hotel — Ballroom",
       address: "123 Wedding Boulevard, Cairo, Egypt",
