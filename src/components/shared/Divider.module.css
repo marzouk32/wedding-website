@@ -10,10 +10,12 @@
   display: block;
   width: 80px;
   height: 1px;
-  background: var(--color-gold-light);
+  background: var(--color-sandstone);
+  opacity: 0.5;
 }
 
 .diamond {
-  color: var(--color-gold);
+  color: var(--color-sage);
   font-size: 0.75rem;
+  opacity: 0.6;
 }

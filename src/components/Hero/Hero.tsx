@@ -1,8 +1,18 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { siteConfig } from "../../config/siteConfig";
 import useCountdown from "../../hooks/useCountdown";
 import styles from "./Hero.module.css";
+
+function useImageWithFallback(src: string, fallback?: string) {
+  const [imgSrc, setImgSrc] = useState(src);
+  useEffect(() => {
+    const img = new Image();
+    img.src = src;
+    img.onerror = () => { if (fallback) setImgSrc(fallback); };
+  }, [src, fallback]);
+  return imgSrc;
+}
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -11,24 +21,21 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const bgSrc = useImageWithFallback(
+    siteConfig.hero.backgroundImage,
+    siteConfig.hero.backgroundImageFallback
+  );
 
   const { days, hours, minutes, seconds, isExpired } = useCountdown(
     siteConfig.weddingDate
   );
-
-  const countdownItems = [
-    { value: days, label: "Days" },
-    { value: hours, label: "Hours" },
-    { value: minutes, label: "Mins" },
-    { value: seconds, label: "Secs" },
-  ];
 
   return (
     <div className={styles.hero} ref={ref}>
       <motion.div
         className={styles.background}
         style={{
-          backgroundImage: `url(${siteConfig.hero.backgroundImage})`,
+          backgroundImage: `url(${bgSrc})`,
           y: bgY,
         }}
       />
@@ -44,16 +51,34 @@ export default function Hero() {
         <h1 className={styles.names}>
           {siteConfig.couple.partner1} & {siteConfig.couple.partner2}
         </h1>
-        <p className={styles.date}>{siteConfig.hero.dateDisplay}</p>
+        <p className={styles.inviteText}>{siteConfig.hero.inviteText}</p>
+        <div className={styles.dateLine}>
+          <span className={styles.dateDash} />
+          <p className={styles.date}>{siteConfig.hero.dateDisplay}</p>
+          <span className={styles.dateDash} />
+        </div>
 
         {!isExpired && (
           <div className={styles.countdown}>
-            {countdownItems.map((item) => (
-              <div className={styles.countdownBox} key={item.label}>
-                <span className={styles.countdownValue}>{item.value}</span>
-                <span className={styles.countdownLabel}>{item.label}</span>
-              </div>
-            ))}
+            <div className={styles.countdownItem}>
+              <span className={styles.countdownValue}>{days}</span>
+              <span className={styles.countdownLabel}>Days</span>
+            </div>
+            <span className={styles.countdownSep}>&middot;</span>
+            <div className={styles.countdownItem}>
+              <span className={styles.countdownValue}>{hours}</span>
+              <span className={styles.countdownLabel}>Hours</span>
+            </div>
+            <span className={styles.countdownSep}>&middot;</span>
+            <div className={styles.countdownItem}>
+              <span className={styles.countdownValue}>{minutes}</span>
+              <span className={styles.countdownLabel}>Minutes</span>
+            </div>
+            <span className={styles.countdownSep}>&middot;</span>
+            <div className={styles.countdownItem}>
+              <span className={styles.countdownValue}>{seconds}</span>
+              <span className={styles.countdownLabel}>Seconds</span>
+            </div>
           </div>
         )}
       </motion.div>

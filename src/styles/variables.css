@@ -1,20 +1,36 @@
 :root {
-  /* Primary palette */
-  --color-gold: #c9a84c;
-  --color-gold-light: #e8d5a3;
-  --color-gold-dark: #a07e2e;
+  /* Primary palette — Mediterranean villa inspired */
+  --color-gold: #b8965a;
+  --color-gold-light: #d4bc8a;
+  --color-gold-dark: #8a6d3a;
   --color-white: #ffffff;
-  --color-ivory: #fff8f0;
-  --color-cream: #fdf6ec;
+  --color-ivory: #f7f4ef;
+  --color-cream: #f0ebe3;
+
+  /* Sky & water tones */
+  --color-sky: #a8c4d8;
+  --color-sky-light: #d0e2ee;
+  --color-pool: #6ba3c4;
+
+  /* Warm stone */
+  --color-sandstone: #d4c4a0;
+  --color-sandstone-light: #e8dcc4;
+  --color-sandstone-dark: #b09870;
+
+  /* Greenery */
+  --color-sage: #7a9474;
+  --color-sage-light: #a8bfa4;
+  --color-olive: #6b7e58;
 
   /* Neutral / text */
-  --color-charcoal: #2c2c2c;
-  --color-warm-gray: #6b6b6b;
-  --color-light-gray: #f5f0eb;
+  --color-charcoal: #3a3530;
+  --color-warm-gray: #7a7168;
+  --color-light-gray: #ebe6df;
 
   /* Romantic accents */
-  --color-blush: #f5e1da;
-  --color-rose: #d4a59a;
+  --color-blush: #e8d4ca;
+  --color-rose: #c4998c;
+  --color-candle: #e8c870;
 
   /* Typography */
   --font-display: "Great Vibes", cursive;

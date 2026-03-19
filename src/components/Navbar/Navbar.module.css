@@ -3,15 +3,14 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 9000;
   transition: background-color var(--transition-smooth),
     box-shadow var(--transition-smooth);
 }
 
 .scrolled {
-  background-color: rgba(255, 248, 240, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  background-color: rgba(247, 244, 239, 0.98);
+  box-shadow: 0 2px 20px rgba(58, 53, 48, 0.08);
 }
 
 .inner {
@@ -86,7 +85,7 @@
   flex-direction: column;
   gap: 5px;
   padding: 4px;
-  z-index: 1001;
+  z-index: 9001;
 }
 
 .hamburger span {
@@ -120,13 +119,24 @@
 /* Mobile menu */
 .mobileMenu {
   position: fixed;
-  inset: 0;
-  background: rgba(44, 44, 44, 0.95);
-  backdrop-filter: blur(10px);
-  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: #3a3530;
+  z-index: 99999;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.closeBtn {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-md);
+  padding: 8px;
+  z-index: 1;
 }
 
 .mobileMenu ul {
@@ -134,14 +144,15 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 .mobileLink {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--color-white);
   transition: color var(--transition-smooth);
+  padding: 0.4rem 0;
 }
 
 .mobileLink:hover {

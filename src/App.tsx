@@ -1,14 +1,20 @@
+import { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
-import LoveStory from "./components/LoveStory/LoveStory";
-import EventDetails from "./components/EventDetails/EventDetails";
-import Gallery from "./components/Gallery/Gallery";
+import WeddingDetails from "./components/WeddingDetails/WeddingDetails";
 import RsvpForm from "./components/RsvpForm/RsvpForm";
 import Venue from "./components/Venue/Venue";
 import Footer from "./components/Footer/Footer";
 import Divider from "./components/shared/Divider";
+import Envelope from "./components/Envelope/Envelope";
 
 export default function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  if (!isOpen) {
+    return <Envelope onOpen={() => setIsOpen(true)} />;
+  }
+
   return (
     <>
       <Navbar />
@@ -16,16 +22,9 @@ export default function App() {
         <section id="hero">
           <Hero />
         </section>
-        <section id="story">
-          <LoveStory />
-        </section>
         <Divider />
         <section id="details">
-          <EventDetails />
-        </section>
-        <Divider />
-        <section id="gallery">
-          <Gallery />
+          <WeddingDetails />
         </section>
         <Divider />
         <section id="rsvp">

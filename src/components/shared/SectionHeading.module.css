@@ -12,8 +12,9 @@
 
 .ornament {
   font-size: 1.5rem;
-  color: var(--color-gold-light);
+  color: var(--color-sage);
   margin-bottom: var(--space-sm);
+  opacity: 0.6;
 }
 
 .subtitle {
