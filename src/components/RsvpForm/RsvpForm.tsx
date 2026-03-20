@@ -32,13 +32,16 @@ export default function RsvpForm() {
     e.preventDefault();
     setSubmitting(true);
     try {
+      const formData = new FormData();
+      formData.append("name", form.name);
+      formData.append("attending", form.attending);
+      formData.append("message", form.message);
       await fetch(
-        "https://script.google.com/macros/s/AKfycbzMfvfH_gZOJn756gl8lSWZcUSMMT2wFnFUPowgmDAUezPiUq1yA1synz3L3eXxi2iCeQ/exec",
+        "https://script.google.com/macros/s/AKfycbyhR6kLyCQ2HfpGT5mqi3PLE8e-6m8yyfofD1JYLdpUMejsP-n4GpY6X6fi0D9c4grkrg/exec",
         {
           method: "POST",
           mode: "no-cors",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form),
+          body: formData,
         }
       );
       setSubmitted(true);
