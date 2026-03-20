@@ -39,7 +39,7 @@ export default function Venue() {
       <div className={styles.imageArea}>
         <div
           className={styles.background}
-          style={{ backgroundImage: `url(${venue.backgroundImage || venue.image})` }}
+          style={{ backgroundImage: `url(${venue.backgroundImage})` }}
         />
         <div className={styles.fadeTop} />
 
@@ -47,7 +47,7 @@ export default function Venue() {
           <ScrollReveal>
             <div className={styles.ctaCenter}>
               <a
-                href={venue.mapLink || venue.mapEmbedUrl}
+                href={venue.mapLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.locationBtn}
