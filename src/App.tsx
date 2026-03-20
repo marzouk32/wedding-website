@@ -22,17 +22,15 @@ export default function App() {
         <section id="hero">
           <Hero />
         </section>
-        <Divider />
         <section id="details">
           <WeddingDetails />
         </section>
         <Divider />
-        <section id="rsvp">
-          <RsvpForm />
-        </section>
-        <Divider />
         <section id="venue">
           <Venue />
+        </section>
+        <section id="rsvp">
+          <RsvpForm />
         </section>
       </main>
       <Footer />

@@ -4,8 +4,8 @@
   --color-gold-light: #d4bc8a;
   --color-gold-dark: #8a6d3a;
   --color-white: #ffffff;
-  --color-ivory: #f7f4ef;
-  --color-cream: #f0ebe3;
+  --color-ivory: #f8f5f0;
+  --color-cream: #f2ede5;
 
   /* Sky & water tones */
   --color-sky: #a8c4d8;
@@ -34,6 +34,7 @@
 
   /* Typography */
   --font-display: "Great Vibes", cursive;
+  --font-serif: "Cormorant Garamond", "Georgia", serif;
   --font-body: "Inter", sans-serif;
 
   /* Spacing scale */

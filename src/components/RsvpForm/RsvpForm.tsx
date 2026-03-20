@@ -6,19 +6,13 @@ import styles from "./RsvpForm.module.css";
 
 interface FormData {
   name: string;
-  email: string;
   attending: string;
-  guests: number;
-  dietary: string;
   message: string;
 }
 
 const initialForm: FormData = {
   name: "",
-  email: "",
   attending: "",
-  guests: 1,
-  dietary: "none",
   message: "",
 };
 
@@ -27,15 +21,10 @@ export default function RsvpForm() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setForm((prev) => ({
-      ...prev,
-      [name]: name === "guests" ? Number(value) : value,
-    }));
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -48,7 +37,7 @@ export default function RsvpForm() {
       <ScrollReveal>
         <SectionHeading
           title="RSVP"
-          subtitle="Kindly let us know if you'll be joining us"
+          subtitle="Kindly respond by the first of April"
         />
       </ScrollReveal>
 
@@ -62,35 +51,22 @@ export default function RsvpForm() {
             exit={{ opacity: 0, y: -20 }}
           >
             <div className={styles.field}>
-              <label htmlFor="rsvp-name">Full Name</label>
+              <label htmlFor="rsvp-name">Your Name</label>
               <input
                 id="rsvp-name"
                 type="text"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                placeholder="Your full name"
+                placeholder="Full name"
                 required
               />
             </div>
 
             <div className={styles.field}>
-              <label htmlFor="rsvp-email">Email</label>
-              <input
-                id="rsvp-email"
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="your@email.com"
-                required
-              />
-            </div>
-
-            <div className={styles.field}>
-              <label>Will you attend?</label>
+              <label>Will You Attend?</label>
               <div className={styles.radioGroup}>
-                <label className={styles.radio}>
+                <label className={`${styles.radioOption} ${form.attending === "yes" ? styles.radioSelected : ""}`}>
                   <input
                     type="radio"
                     name="attending"
@@ -99,9 +75,10 @@ export default function RsvpForm() {
                     onChange={handleChange}
                     required
                   />
+                  <span className={styles.radioCircle} />
                   <span>Joyfully Accept</span>
                 </label>
-                <label className={styles.radio}>
+                <label className={`${styles.radioOption} ${form.attending === "no" ? styles.radioSelected : ""}`}>
                   <input
                     type="radio"
                     name="attending"
@@ -109,43 +86,11 @@ export default function RsvpForm() {
                     checked={form.attending === "no"}
                     onChange={handleChange}
                   />
+                  <span className={styles.radioCircle} />
                   <span>Regretfully Decline</span>
                 </label>
               </div>
             </div>
-
-            {form.attending === "yes" && (
-              <div className={styles.field}>
-                <label htmlFor="rsvp-guests">Number of Guests</label>
-                <input
-                  id="rsvp-guests"
-                  type="number"
-                  name="guests"
-                  value={form.guests}
-                  onChange={handleChange}
-                  min={1}
-                  max={5}
-                />
-              </div>
-            )}
-
-            {form.attending === "yes" && (
-              <div className={styles.field}>
-                <label htmlFor="rsvp-dietary">Dietary Restrictions</label>
-                <select
-                  id="rsvp-dietary"
-                  name="dietary"
-                  value={form.dietary}
-                  onChange={handleChange}
-                >
-                  <option value="none">None</option>
-                  <option value="vegetarian">Vegetarian</option>
-                  <option value="vegan">Vegan</option>
-                  <option value="gluten-free">Gluten-Free</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-            )}
 
             <div className={styles.field}>
               <label htmlFor="rsvp-message">Message to the Couple</label>
@@ -154,27 +99,49 @@ export default function RsvpForm() {
                 name="message"
                 value={form.message}
                 onChange={handleChange}
-                placeholder="Share your wishes..."
+                placeholder="Share your warmest wishes..."
                 rows={4}
               />
             </div>
 
             <button type="submit" className={styles.submitBtn}>
-              Send RSVP
+              <span>Send RSVP</span>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </button>
           </motion.form>
         ) : (
           <motion.div
             key="success"
             className={styles.success}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className={styles.heart}>&#10084;</div>
+            <div className={styles.successIcon}>
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+            </div>
             <h3>Thank You!</h3>
             <p>
-              We've received your RSVP. We can't wait to celebrate with you!
+              Your response has been received. We look forward to celebrating
+              this special day with you.
             </p>
           </motion.div>
         )}

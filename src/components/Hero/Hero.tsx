@@ -51,7 +51,6 @@ export default function Hero() {
         <h1 className={styles.names}>
           {siteConfig.couple.partner1} & {siteConfig.couple.partner2}
         </h1>
-        <p className={styles.inviteText}>{siteConfig.hero.inviteText}</p>
         <div className={styles.dateLine}>
           <span className={styles.dateDash} />
           <p className={styles.date}>{siteConfig.hero.dateDisplay}</p>

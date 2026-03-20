@@ -1,11 +1,11 @@
 .section {
-  max-width: 600px;
+  max-width: 580px;
   margin: 0 auto;
-  background: var(--color-cream);
+  background: var(--color-white);
   border-radius: 24px;
-  padding: var(--space-xl) var(--space-md);
-  border: 1px solid rgba(184, 150, 90, 0.12);
-  box-shadow: 0 8px 30px rgba(58, 53, 48, 0.06);
+  padding: var(--space-xl) var(--space-lg);
+  border: 1px solid rgba(184, 150, 90, 0.1);
+  box-shadow: 0 8px 40px rgba(58, 53, 48, 0.06);
 }
 
 .form {
@@ -17,94 +17,141 @@
 .field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
-.field label {
+.field > label:first-child {
+  font-family: var(--font-serif);
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--color-charcoal);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .field input[type="text"],
-.field input[type="email"],
-.field input[type="number"],
-.field select,
 .field textarea {
   width: 100%;
-  padding: 12px 0;
+  padding: 14px 0;
   border: none;
   border-bottom: 1.5px solid var(--color-sandstone);
   background: transparent;
   color: var(--color-charcoal);
+  font-family: var(--font-serif);
   font-size: 1rem;
   outline: none;
   transition: border-color var(--transition-smooth);
 }
 
 .field input:focus,
-.field select:focus,
 .field textarea:focus {
   border-color: var(--color-gold);
 }
 
 .field textarea {
   border: 1.5px solid var(--color-sandstone);
-  border-radius: 8px;
-  padding: 12px;
+  border-radius: 12px;
+  padding: 14px 16px;
   resize: vertical;
+  line-height: 1.7;
 }
 
 .field textarea:focus {
   border-color: var(--color-gold);
 }
 
-.field select {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23b8965a' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 4px center;
-}
-
+/* Radio buttons — minimal */
 .radioGroup {
   display: flex;
-  gap: var(--space-md);
-  padding-top: 6px;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 4px;
 }
 
-.radio {
+.radioOption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--color-warm-gray);
+  transition: color 0.3s ease;
+}
+
+.radioOption:hover {
+  color: var(--color-charcoal);
+}
+
+.radioOption input[type="radio"] {
+  display: none;
+}
+
+.radioCircle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-sandstone);
+  position: relative;
+  flex-shrink: 0;
+  transition: border-color 0.3s ease;
+}
+
+.radioCircle::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  transform: scale(0);
+  transition: transform 0.25s ease;
+}
+
+.radioSelected .radioCircle {
+  border-color: var(--color-gold);
+}
+
+.radioSelected .radioCircle::after {
+  transform: scale(1);
+}
+
+.radioSelected {
+  color: var(--color-charcoal);
+}
+
+/* Submit button */
+.submitBtn {
+  margin-top: var(--space-sm);
+  padding: 16px 44px;
+  background: var(--color-gold);
+  color: var(--color-white);
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  border-radius: 50px;
+  transition:
+    background-color var(--transition-smooth),
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
+  align-self: center;
   display: flex;
   align-items: center;
   gap: 8px;
-  cursor: pointer;
-  font-size: 0.95rem;
-}
-
-.radio input[type="radio"] {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--color-gold);
-}
-
-.submitBtn {
-  margin-top: var(--space-sm);
-  padding: 14px 40px;
-  background: var(--color-gold);
-  color: var(--color-white);
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  border-radius: 50px;
-  transition: background-color var(--transition-smooth),
-    transform var(--transition-smooth);
-  align-self: center;
 }
 
 .submitBtn:hover {
   background: var(--color-gold-dark);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(184, 150, 90, 0.3);
+}
+
+.submitBtn svg {
+  transition: transform var(--transition-smooth);
+}
+
+.submitBtn:hover svg {
+  transform: translateX(3px);
 }
 
 /* Success state */
@@ -113,20 +160,33 @@
   padding: var(--space-lg) 0;
 }
 
-.heart {
-  font-size: 3rem;
+.successIcon {
   color: var(--color-gold);
   margin-bottom: var(--space-sm);
 }
 
 .success h3 {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   color: var(--color-gold);
   margin-bottom: var(--space-xs);
 }
 
 .success p {
+  font-family: var(--font-serif);
   color: var(--color-warm-gray);
   font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .radioGroup {
+    gap: 8px;
+  }
 }

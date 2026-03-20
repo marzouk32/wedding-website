@@ -1,3 +1,5 @@
+const base = import.meta.env.BASE_URL;
+
 export const siteConfig = {
   couple: {
     partner1: "Seif",
@@ -8,11 +10,10 @@ export const siteConfig = {
   weddingDate: "2026-04-17T18:00:00",
 
   hero: {
-    backgroundImage: "/images/venue.jpg",
+    backgroundImage: `${base}images/hero-bg.jpeg`,
     backgroundImageFallback: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80",
     subtitle: "Together with their families",
-    inviteText: "Request the pleasure of your company at the celebration of their marriage",
-    dateDisplay: "Friday, April 17",
+    dateDisplay: "Friday, April 17, 2026",
   },
 
   events: [
@@ -20,8 +21,8 @@ export const siteConfig = {
       name: "Wedding Ceremony",
       date: "Friday, April 17, 2026",
       time: "6:00 PM",
-      venue: "The Grand Palace Hotel",
-      address: "123 Wedding Boulevard, Cairo, Egypt",
+      venue: "Casa Maria, Orabi",
+      address: "Orabi, Egypt",
       description:
         "Join us as we exchange our vows and begin our journey together as one.",
     },
@@ -29,19 +30,24 @@ export const siteConfig = {
       name: "Reception & Dinner",
       date: "Friday, April 17, 2026",
       time: "8:00 PM",
-      venue: "The Grand Palace Hotel — Ballroom",
-      address: "123 Wedding Boulevard, Cairo, Egypt",
+      venue: "Casa Maria, Orabi",
+      address: "Orabi, Egypt",
       description:
         "An evening of dinner, dancing, and celebration with our loved ones.",
     },
   ],
 
+  dressCode: "Formal Attire / Soirée",
+
+  adultsOnly:
+    "We love your little ones, but let them have a good night",
+
   venue: {
-    name: "The Grand Palace Hotel",
-    address: "123 Wedding Boulevard, Cairo, Egypt",
-    mapEmbedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.941536022874!2d31.23571631511741!3d30.04441948188318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa60b21beeb%3A0x79dfb296e8423bba!2sCairo%2C%20Egypt!5e0!3m2!1sen!2sus!4v1234567890",
-    image: "/images/venue.jpg",
+    name: "Casa Maria",
+    address: "Orabi, Egypt",
+    caption: "",
+    backgroundImage: `${base}images/venue-bg.jpg`,
+    mapLink: "https://maps.app.goo.gl/BPbsjp5DbWFUJCjbA?g_st=iw",
     directions:
       "Located in the heart of Cairo, easily accessible from all major highways. Valet parking is available at the main entrance.",
   },

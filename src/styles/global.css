@@ -11,15 +11,21 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-serif);
   color: var(--color-charcoal);
-  background-color: var(--color-ivory);
+  background-color: var(--color-charcoal);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+main {
+  background-color: var(--color-ivory);
 }
 
 h1,
@@ -31,7 +37,7 @@ h3 {
 }
 
 section {
-  padding: var(--space-xl) var(--space-md);
+  padding: var(--space-lg) var(--space-md);
 }
 
 #hero {
@@ -61,6 +67,12 @@ textarea,
 select {
   font-family: inherit;
   font-size: inherit;
+}
+
+/* Smooth selections */
+::selection {
+  background: rgba(184, 150, 90, 0.2);
+  color: var(--color-charcoal);
 }
 
 @media (prefers-reduced-motion: reduce) {

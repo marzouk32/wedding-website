@@ -12,7 +12,7 @@
   position: absolute;
   inset: -10% 0 0 0;
   background-size: cover;
-  background-position: center;
+  background-position: center 30%;
   background-repeat: no-repeat;
   will-change: transform;
 }
@@ -20,12 +20,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(58, 53, 48, 0.25) 0%,
-    rgba(58, 53, 48, 0.45) 50%,
-    rgba(58, 53, 48, 0.6) 100%
-  );
+  background: rgba(58, 53, 48, 0.75);
 }
 
 .content {
@@ -85,10 +80,12 @@
 }
 
 .date {
-  font-family: var(--font-display);
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-family: var(--font-serif);
+  font-size: clamp(0.95rem, 2.8vw, 1.8rem);
   color: var(--color-gold-light);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  font-weight: 300;
 }
 
 /* Countdown */
