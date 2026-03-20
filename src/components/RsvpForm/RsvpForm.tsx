@@ -19,6 +19,7 @@ const initialForm: FormData = {
 export default function RsvpForm() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -27,9 +28,24 @@ export default function RsvpForm() {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbzMfvfH_gZOJn756gl8lSWZcUSMMT2wFnFUPowgmDAUezPiUq1yA1synz3L3eXxi2iCeQ/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        }
+      );
+      setSubmitted(true);
+    } catch {
+      alert("Something went wrong. Please try again.");
+    }
+    setSubmitting(false);
   };
 
   return (
@@ -104,8 +120,8 @@ export default function RsvpForm() {
               />
             </div>
 
-            <button type="submit" className={styles.submitBtn}>
-              <span>Send RSVP</span>
+            <button type="submit" className={styles.submitBtn} disabled={submitting}>
+              <span>{submitting ? "Sending..." : "Send RSVP"}</span>
               <svg
                 width="18"
                 height="18"
